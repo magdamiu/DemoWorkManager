@@ -1,14 +1,11 @@
 package com.magdamiu.demoworkmanager
 
-import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.work.*
 import androidx.work.WorkManager
-import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -64,7 +61,6 @@ class MainActivity : AppCompatActivity() {
                 }
             })
     }
-
 
     private fun display(s: String) {
         Toast.makeText(this, s, Toast.LENGTH_LONG).show()

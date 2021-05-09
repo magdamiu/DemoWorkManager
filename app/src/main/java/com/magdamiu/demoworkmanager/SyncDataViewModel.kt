@@ -1,8 +1,6 @@
 package com.magdamiu.demoworkmanager
 
 import android.app.Application
-import android.view.View
-import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.work.*
