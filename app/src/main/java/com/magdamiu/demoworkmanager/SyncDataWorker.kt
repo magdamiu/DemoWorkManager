@@ -5,9 +5,8 @@ import androidx.work.Worker
 import androidx.work.WorkerParameters
 import androidx.work.workDataOf
 
-class SyncWorker(context: Context, workerParams: WorkerParameters) : Worker(context, workerParams) {
+class SyncDataWorker(context: Context, workerParams: WorkerParameters) : Worker(context, workerParams) {
     override fun doWork(): Result {
-
         // get the data
         val userIdInput = inputData.getInt(Constants.DATA_USER_ID, 0)
 

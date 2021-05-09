@@ -6,6 +6,7 @@ package com.magdamiu.demoworkmanager
             const val DATA_SENT = "data_sent"
             const val WORKER_SYNC = "worker_sync"
             const val UNIQUE_NAME = "unique_name"
+            const val CLEAN_DATA = "clean_data"
             const val UNIQUE_UDID = "unique_udid"
             const val TAG_SYNC = "tag"
         }
