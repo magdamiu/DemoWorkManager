@@ -1,6 +1,7 @@
 package com.magdamiu.demoworkmanager
 
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
@@ -12,6 +13,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        val viewModel = SyncDataViewModel(this.application)
+        viewModel.startOneTimeRequestSyncData(1)
+        viewModel.startPeriodicRequest()
     }
 
     private fun getStatusByIdForever(syncOnlyOnce: OneTimeWorkRequest) {
@@ -47,6 +51,8 @@ class MainActivity : AppCompatActivity() {
                 val currentWorkStatus = workInfoList?.getOrNull(0)
                 if (currentWorkStatus?.state?.isFinished == true) {
                     display("Sync finished!")
+                } else {
+                    currentWorkStatus?.state?.name?.let { display(it) }
                 }
             })
     }
@@ -58,12 +64,19 @@ class MainActivity : AppCompatActivity() {
                 val currentWorkStatus = workInfoList?.getOrNull(0)
                 if (currentWorkStatus?.state?.isFinished == true) {
                     display("Sync finished!")
+                } else {
+                    currentWorkStatus?.state?.name?.let { display(it) }
                 }
             })
     }
 
     private fun display(s: String) {
         Toast.makeText(this, s, Toast.LENGTH_LONG).show()
+    }
+
+    fun checkStatusOnClick(view: View) {
+        getStatusByTag()
+        getStatusByUniqueName()
     }
 }
 

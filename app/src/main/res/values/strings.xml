@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">DemoWorkManager</string>
+    <string name="check_status">Check Status</string>
 </resources>
